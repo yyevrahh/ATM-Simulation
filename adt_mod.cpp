@@ -1,7 +1,7 @@
 #include "adt_mod.hpp"
 #include <iostream>
 #include <iomanip>
-// adiel was here three
+
 using namespace std;
 
 Node* LinkedList::findNode(int accNum) {
@@ -88,4 +88,8 @@ void LinkedList::del(int accNum) {
 int LinkedList::nextAccNum() {
     if (tail == nullptr) return MIN_ACC_NUMBER;
     return tail->acc.num + 1;
+}
+
+Node* LinkedList::gethead() {
+    return head; //access in the first node to traverse the list
 }

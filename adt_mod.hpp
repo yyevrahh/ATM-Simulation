@@ -45,6 +45,8 @@ public: {
     void update(int accNum, int changeMode, double newVal);
     void del(int accNum);
     int nextAccNum();
+
+    Node* gethead(); //pahingi access buseng
 };
 
 #endif
