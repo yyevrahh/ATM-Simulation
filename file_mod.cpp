@@ -1,10 +1,34 @@
 #include "file_mod.hpp"
+#include <filesystem>
 #include <iostream>
 #include <fstream>
 
 using namespace std;
 
-void saveAcc(Account a) {
+string FileUtils::encryptPIN(string pin) {
+    string encrypted = "";
+
+    //each character is shifted by 3
+    for (char digit :  pin) {
+        encrypted += char (digit + 3);
+    }
+
+    return encrypted;
+}
+
+string FileUtils::decryptPIN(string pin) {
+    string decrypted = "";
+
+    //converts pin back to its original value
+    for (char digit :  pin) {
+        decrypted += char (digit - 3);
+    }
+
+    return decrypted;
+}
+
+
+void FileUtils::saveAcc(Account a) {
     ofstream file ("accounts.dat", ios::app); //adds new data to the file without overwriting existing data
 
     file << a.num << endl;
@@ -17,7 +41,7 @@ void saveAcc(Account a) {
     file.close();
 }
 
-void readAccs(LinkedList &list) {
+void FileUtils::readAccs(LinkedList &list) {
     ifstream file("accounts.dat");
 
     Account a;
@@ -41,30 +65,31 @@ void readAccs(LinkedList &list) {
     file.close();
 }
 
-string encryptPIN(string pin) {
-    string encrypted = "";
+namespace fs = filesystem;
 
-    //each character is shifted by 3
-    for (char digit :  pin) {
-        encrypted += char (digit + 3);
+string FileUtils::getUSBRoot() {
+    string target = "pin.code";
+
+#ifdef _WIN32
+    for (char drive = 'D'; drive <= 'Z'; ++drive) {
+        string root = string(1, drive) + ":\\";
+        if (fs::exists(root + target)) return root;
     }
-
-    return encrypted;
-}
-
-string decryptPIN(string pin) {
-    string decrypted = "";
-
-    //converts pin back to its original value
-    for (char digit :  pin) {
-        decrypted += char (digit - 3);
+#elif __linux__
+    string mediaPath = "/run/media/yyevrahh/";  // I am using my own file root name here change it if you'll use it
+    if (fs::exists(mediaPath)) {
+        for (const auto& entry : fs::directory_iterator(mediaPath)) {
+            if (entry.is_directory() && fs::exists(entry.path() / target)) {
+                return entry.path().string() + "/";
+            }
+        }
     }
-
-    return decrypted;
+#endif
+    return ""; // USB not found
 }
 
 //saves encrypted pin in the flash drive
-void saveCard(Account a, string cardPath) {
+void FileUtils::saveCard(Account a, string cardPath) {
     ofstream file(cardPath + "/pin.code");
 
     file << a.num << endl;
@@ -74,7 +99,7 @@ void saveCard(Account a, string cardPath) {
 }
 
 //checks if card is inserted
-bool cardIns(string cardPath) {
+bool FileUtils::cardIns(string cardPath) {
     ifstream file(cardPath + "/pin.code");
 
     if (!file) return false;
@@ -83,7 +108,7 @@ bool cardIns(string cardPath) {
     return true;
 }
 
-bool readCard(string cardPath, int &accNum, string &pin) {
+bool FileUtils::readCard(string cardPath, int &accNum, string &pin) {
     ifstream file(cardPath + "/pin.code");
 
     if (!file) return false;
@@ -100,7 +125,7 @@ bool readCard(string cardPath, int &accNum, string &pin) {
     return true;
 }
 
-bool veriPIN(LinkedList &list, int accNum, string pin) {
+bool FileUtils::veriPIN(LinkedList &list, int accNum, string pin) {
     Node* p = list.findNode(accNum);
 
     if (p == nullptr) return false;
@@ -108,7 +133,7 @@ bool veriPIN(LinkedList &list, int accNum, string pin) {
     return p -> acc.pin == pin;
 }
 
-void saveAccounts(LinkedList &list) {
+void FileUtils::saveAccounts(LinkedList &list) {
     ofstream file("accounts.dat"); //intentionally rewrite the file from scratch using the current list
 
     Node* p = list.gethead();

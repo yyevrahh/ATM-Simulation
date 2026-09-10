@@ -1,5 +1,6 @@
 #ifndef ADT_MOD_HPP
 #define ADT_MOD_HPP
+#include <iostream>
 using namespace std;
 
 #define MIN_ACC_NUMBER 10000
@@ -25,9 +26,7 @@ class LinkedList {
 private:
     Node* head = nullptr;
     Node* tail = nullptr;
-public: {
-        head = tail =
-    }
+public:
     LinkedList() {}
     ~LinkedList() {
         Node* p = head;
@@ -46,7 +45,7 @@ public: {
     void del(int accNum);
     int nextAccNum();
 
-    Node* gethead(); //pahingi access buseng
+    Node* gethead(); // getter for private member Node* head
 };
 
 #endif

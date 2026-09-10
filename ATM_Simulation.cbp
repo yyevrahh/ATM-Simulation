@@ -32,9 +32,7 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="adt_mod.cpp">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
+		<Unit filename="adt_mod.cpp" />
 		<Unit filename="adt_mod.hpp" />
 		<Unit filename="file_mod.cpp" />
 		<Unit filename="file_mod.hpp" />

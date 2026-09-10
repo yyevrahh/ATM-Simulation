@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1788666165 source:/home/yyevrahh/Desktop/CBProjects/ATM_Simulation/main.cpp
+	<iostream>
+
+1789011610 source:/home/yyevrahh/Desktop/CBProjects/ATM_Simulation/file_mod.cpp
+	"file_mod.hpp"
+	<filesystem>
+	<iostream>
+	<fstream>
+
+1789011585 /home/yyevrahh/Desktop/CBProjects/ATM_Simulation/file_mod.hpp
+	"adt_mod.hpp"
+
+1789011643 /home/yyevrahh/Desktop/CBProjects/ATM_Simulation/adt_mod.hpp
+	<iostream>
+
+1789011559 source:/home/yyevrahh/Desktop/CBProjects/ATM_Simulation/adt_mod.cpp
+	"adt_mod.hpp"
+	<iostream>
+	<iomanip>
+
