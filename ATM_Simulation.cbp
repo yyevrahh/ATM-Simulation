@@ -37,6 +37,8 @@
 		<Unit filename="file_mod.cpp" />
 		<Unit filename="file_mod.hpp" />
 		<Unit filename="main.cpp" />
+		<Unit filename="reg_mod.cpp" />
+		<Unit filename="reg_mod.hpp" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>
