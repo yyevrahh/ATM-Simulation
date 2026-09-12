@@ -130,7 +130,7 @@ bool FileUtils::veriPIN(LinkedList &list, int accNum, string pin) {
 
     if (p == nullptr) return false;
 
-    return p -> acc.pin == pin;
+    return p->acc.pin == pin;
 }
 
 void FileUtils::saveAccounts(LinkedList &list) {
@@ -139,14 +139,14 @@ void FileUtils::saveAccounts(LinkedList &list) {
     Node* p = list.gethead();
 
     while (p != nullptr) {
-        file << p -> acc.num << endl;
-        file << p -> acc.name << endl;
-        file << p -> acc.bday << endl;
-        file << p -> acc.contactNum << endl;
-        file << p -> acc.balance << endl;
-        file << encryptPIN(p -> acc.pin) << endl;
+        file << p->acc.num << endl;
+        file << p->acc.name << endl;
+        file << p->acc.bday << endl;
+        file << p->acc.contactNum << endl;
+        file << p->acc.balance << endl;
+        file << encryptPIN(p->acc.pin) << endl;
 
-        p = p -> next;
+        p = p->next;
     }
 
     file.close();

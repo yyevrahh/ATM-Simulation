@@ -1,21 +1,56 @@
 # depslib dependency file v1.0
-1788666165 source:/home/yyevrahh/Desktop/CBProjects/ATM_Simulation/main.cpp
+1789226892 source:/home/yyevrahh/Desktop/CBProjects/ATM_Simulation/main.cpp
+	"file_mod.hpp"
+	"reg_mod.hpp"
+	"trans_mod.hpp"
 	<iostream>
+	<iomanip>
+	<string>
 
-1789011610 source:/home/yyevrahh/Desktop/CBProjects/ATM_Simulation/file_mod.cpp
+1789227879 source:/home/yyevrahh/Desktop/CBProjects/ATM_Simulation/file_mod.cpp
 	"file_mod.hpp"
 	<filesystem>
 	<iostream>
 	<fstream>
 
-1789034273 /home/yyevrahh/Desktop/CBProjects/ATM_Simulation/file_mod.hpp
+1789228147 /home/yyevrahh/Desktop/CBProjects/ATM_Simulation/file_mod.hpp
 	"adt_mod.hpp"
 
-1789033757 /home/yyevrahh/Desktop/CBProjects/ATM_Simulation/adt_mod.hpp
+1789227563 /home/yyevrahh/Desktop/CBProjects/ATM_Simulation/adt_mod.hpp
 	<iostream>
 
-1789011559 source:/home/yyevrahh/Desktop/CBProjects/ATM_Simulation/adt_mod.cpp
+1789227593 source:/home/yyevrahh/Desktop/CBProjects/ATM_Simulation/adt_mod.cpp
 	"adt_mod.hpp"
 	<iostream>
 	<iomanip>
+
+1789228296 /home/yyevrahh/Desktop/CBProjects/ATM_Simulation/reg_mod.hpp
+	"adt_mod.hpp"
+
+1789225223 /home/yyevrahh/Desktop/CBProjects/ATM_Simulation/trans_mod.hpp
+	"adt_mod.hpp"
+	"file_mod.hpp"
+
+1789224321 source:/home/yyevrahh/Desktop/CBProjects/ATM_Simulation/adt_mod.hpp
+	<iostream>
+
+1789228311 source:/home/yyevrahh/Desktop/CBProjects/ATM_Simulation/reg_mod.cpp
+	"reg_mod.hpp"
+
+1789226874 source:/home/yyevrahh/Desktop/CBProjects/ATM_Simulation/file_mod.hpp
+	"adt_mod.hpp"
+
+1789226848 source:/home/yyevrahh/Desktop/CBProjects/ATM_Simulation/reg_mod.hpp
+	"adt_mod.hpp"
+	"file_mod.hpp"
+
+1789228373 source:/home/yyevrahh/Desktop/CBProjects/ATM_Simulation/trans_mod.cpp
+	"trans_mod.hpp"
+	"file_mod.hpp"
+	<iostream>
+	<iomanip>
+
+1789225223 source:/home/yyevrahh/Desktop/CBProjects/ATM_Simulation/trans_mod.hpp
+	"adt_mod.hpp"
+	"file_mod.hpp"
 

@@ -4,10 +4,12 @@
 #include "file_mod.hpp"
 
 class Transaction {
-    public:
-        void balInq(LinkedList &list, int accNum);
-        bool withdraw(LinkedList &list, int accNum, double amount);
-        bool depos(LinkedList &list, int accNum, double amount);
+public:
+    void balInq(LinkedList &list, int accNum);
+    bool withdraw(LinkedList &list, int accNum, double amount);
+    bool depos(LinkedList &list, int accNum, double amount);
+    bool fundTrans(LinkedList &list, int fromAccNum, int toAccNum, double amount);
+    bool changePIN(LinkedList &list, int accNum, string newPin);
 };
 
 #endif

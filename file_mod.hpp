@@ -1,15 +1,13 @@
 #ifndef FILE_MOD_HPP
 #define FILE_MOD_HPP
 #include "adt_mod.hpp"
-#include "reg_mod.hpp"
+
 
 class FileUtils {
 private:
     //for PIN security
     string encryptPIN(string pin);
     string decryptPIN(string pin);
-
-    friend Account Registration::accountInfo(Account a, FileUtils fs);
 
 public:
     void saveAcc(Account a); //saves new account in "accounts.dat"

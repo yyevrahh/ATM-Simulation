@@ -1,3 +1,14 @@
+/**
+*   ATM Simulation DSA Project
+*   Salinas, John Harvey C.
+*   Repaso, Adiel D.
+*   Developed on Linux platform. Cross-platform clear screen included for your convenience.
+**/
+#ifdef _WIN32
+    #define CLEAR "cls"
+#else
+    #define CLEAR "clear"
+#endif
 #include "file_mod.hpp"
 #include "reg_mod.hpp"
 #include "trans_mod.hpp"
@@ -9,6 +20,7 @@ using namespace std;
 
 template <typename T>
 void getVal(T& var, const string& prompt);
+void pressToContinue();
 void showMenu();
 void balanceInquiry(Transaction &trans, LinkedList &list);
 void withdraw(Transaction &trans, LinkedList &list);
@@ -27,6 +39,7 @@ int main()
     int choice;
 
     do {
+        system(CLEAR);
         showMenu();
 
         getVal(choice, " Enter choice: ");
@@ -35,19 +48,20 @@ int main()
             case 1: balanceInquiry(trans, list); break;
             case 2: withdraw(trans, list); break;
             case 3: deposit(trans, list); break;
-            //case 4: fundTransfer
+            case 4: exit(0); break;
             //case 5: changePIN
             default:
                 cout << "Invalid Input. Please try again.\n" << endl;
         }
+        pressToContinue();
 
-    } while (choice != 4);
+    } while (true);
 
     return 0;
 }
 
 template <typename T>
-T getVal(T& var, const string& prompt) {
+void getVal(T& var, const string& prompt) {
     cout << prompt;
     while (!(cin >> var)) {
         cout << "\tTry again." << endl;
@@ -55,6 +69,13 @@ T getVal(T& var, const string& prompt) {
         cin.ignore(1000, '\n');
         cout << prompt;
     }
+}
+
+void pressToContinue() {
+    cout << "\nPress any key to continue...";
+    cin.clear();
+    cin.ignore(1000, '\n');
+    cin.get();
 }
 
 void showMenu() {

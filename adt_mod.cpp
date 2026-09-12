@@ -91,5 +91,5 @@ int LinkedList::nextAccNum() {
 }
 
 Node* LinkedList::gethead() {
-    return head; //access in the first node to traverse the list
+    return head;
 }

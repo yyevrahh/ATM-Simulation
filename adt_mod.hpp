@@ -38,6 +38,10 @@ public:
         }
     }
 
+    /*
+        * We can treat the following functions as administrator powers
+    */
+
     Node* findNode(int accNum);
     void add(Account a);
     void display(int accNum);
